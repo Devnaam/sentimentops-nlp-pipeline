@@ -22,6 +22,9 @@ MODELS_FIGURES_DIR = MODELS_DIR / "figures"
 NOTEBOOKS_FIGURES_DIR = PROJECT_ROOT / "notebooks" / "figures"
 MLRUNS_DIR = PROJECT_ROOT / "mlruns"
 
+# MLflow requires a proper file URI on Windows (bare paths cause scheme errors)
+MLFLOW_TRACKING_URI = MLRUNS_DIR.as_uri()
+
 # The raw dataset shipped with the repo (note: file has double .csv extension)
 RAW_DATASET_PATH = DATA_RAW_DIR / "reviews.csv.csv"
 CLEANED_DATASET_PATH = DATA_PROCESSED_DIR / "cleaned_reviews.csv"
