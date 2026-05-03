@@ -50,12 +50,12 @@ LR_MAX_ITER = 1000
 # sentiment task the marginal accuracy gain from full BERT rarely justifies
 # the doubled training time and GPU memory.
 BERT_MODEL_NAME = "distilbert-base-uncased"
-BERT_MAX_LENGTH = 256  # most reviews fit well within 256 tokens
+BERT_MAX_LENGTH = 128  # 128 tokens covers >90% of reviews; keeps CPU training feasible
 BERT_LEARNING_RATE = 2e-5
 BERT_WEIGHT_DECAY = 0.01
-BERT_EPOCHS = 3
-BERT_BATCH_SIZE = 16
-BERT_WARMUP_STEPS = 100
+BERT_EPOCHS = 1  # single epoch on CPU; increase to 3 if training on GPU
+BERT_BATCH_SIZE = 8  # smaller batch for CPU memory constraints
+BERT_WARMUP_STEPS = 50
 
 # LLM fallback
 # 0.65 was chosen empirically: below this threshold the model's softmax
