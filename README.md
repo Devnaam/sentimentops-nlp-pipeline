@@ -127,6 +127,9 @@ curl -X POST http://localhost:8000/predict \
 streamlit run dashboard/app.py
 ```
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6431f513-6610-4fea-8798-6a75f9473a97" />
+
+
 ---
 
 ## Model Comparison
