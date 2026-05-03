@@ -251,7 +251,9 @@ def evaluate() -> None:
 
         with mlflow.start_run(run_name="model_comparison"):
             for r in results:
-                prefix = r["model"].lower().replace(" ", "_").replace("(", "").replace(")", "")
+                import re
+                prefix = re.sub(r'[^a-z0-9_]', '_', r["model"].lower())
+                prefix = re.sub(r'_+', '_', prefix).strip('_')  # collapse multiple underscores
                 mlflow.log_metrics({
                     f"{prefix}_f1": r["f1_weighted"],
                     f"{prefix}_auc": r["auc_roc"],
